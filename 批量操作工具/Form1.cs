@@ -23,7 +23,7 @@ namespace 批量操作工具
             txtContent2.Text = "";
             string str = txtContent1.Text.Trim().Replace("\n", " ");
             string[] pp = str.Split(' ');
-            string Xml = "";
+            string Xml = ""; 
             for (int i = 0; i < pp.Length; i++)
             {
                 pp[i] = pp[i].Trim();
