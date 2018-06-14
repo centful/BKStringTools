@@ -59,7 +59,7 @@
             // 
             // btnProperty
             // 
-            this.btnProperty.Location = new System.Drawing.Point(390, 114);
+            this.btnProperty.Location = new System.Drawing.Point(390, 131);
             this.btnProperty.Name = "btnProperty";
             this.btnProperty.Size = new System.Drawing.Size(91, 44);
             this.btnProperty.TabIndex = 1;
@@ -69,7 +69,7 @@
             // 
             // btnReqXML
             // 
-            this.btnReqXML.Location = new System.Drawing.Point(390, 222);
+            this.btnReqXML.Location = new System.Drawing.Point(390, 216);
             this.btnReqXML.Name = "btnReqXML";
             this.btnReqXML.Size = new System.Drawing.Size(91, 44);
             this.btnReqXML.TabIndex = 1;
@@ -79,7 +79,7 @@
             // 
             // btnResXML
             // 
-            this.btnResXML.Location = new System.Drawing.Point(390, 307);
+            this.btnResXML.Location = new System.Drawing.Point(390, 305);
             this.btnResXML.Name = "btnResXML";
             this.btnResXML.Size = new System.Drawing.Size(91, 44);
             this.btnResXML.TabIndex = 1;
@@ -89,9 +89,9 @@
             // 
             // btnReqCs
             // 
-            this.btnReqCs.Location = new System.Drawing.Point(503, 12);
+            this.btnReqCs.Location = new System.Drawing.Point(383, 389);
             this.btnReqCs.Name = "btnReqCs";
-            this.btnReqCs.Size = new System.Drawing.Size(130, 32);
+            this.btnReqCs.Size = new System.Drawing.Size(107, 44);
             this.btnReqCs.TabIndex = 1;
             this.btnReqCs.Text = "生成请求类文件";
             this.btnReqCs.UseVisualStyleBackColor = true;
@@ -99,9 +99,9 @@
             // 
             // btnResCs
             // 
-            this.btnResCs.Location = new System.Drawing.Point(675, 12);
+            this.btnResCs.Location = new System.Drawing.Point(384, 466);
             this.btnResCs.Name = "btnResCs";
-            this.btnResCs.Size = new System.Drawing.Size(130, 32);
+            this.btnResCs.Size = new System.Drawing.Size(107, 44);
             this.btnResCs.TabIndex = 1;
             this.btnResCs.Text = "生成回参类文件";
             this.btnResCs.UseVisualStyleBackColor = true;

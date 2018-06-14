@@ -21,12 +21,12 @@ namespace 批量操作工具
         private void btnProperty_Click(object sender, EventArgs e)
         {
             txtContent2.Text = "";
+            txtContent1.Text = txtContent1.Text.Trim().Replace(" ", "");
             string str = txtContent1.Text.Trim().Replace("\n", " ");
             string[] pp = str.Split(' ');
             string Xml = ""; 
             for (int i = 0; i < pp.Length; i++)
             {
-                pp[i] = pp[i].Trim();
                 pp[i] = "public string " + pp[i] + " {get;set;} \n";
                 Xml += pp[i];
             }
@@ -38,12 +38,12 @@ namespace 批量操作工具
         private void btnReqXML_Click(object sender, EventArgs e)
         {
             txtContent2.Text = "";
+            txtContent1.Text = txtContent1.Text.Trim().Replace(" ", "");
             string str = txtContent1.Text.Trim().Replace("\n", " ");
             string[] pp = str.Split(' ');
             string Xml = "var xmlDoc = new XmlDocument();\r\nXmlNode root = xmlDoc.CreateElement(\"req\"); \r\n";
             for (int i = 0; i < pp.Length; i++)
             {
-                pp[i] = pp[i].Trim();
                 pp[i] =string.Format("XmlNode {0}Node = xmlDoc.CreateElement(\"{1}\");\r\n{2}Node.InnerText = request.{3};\r\nroot.AppendChild({4}Node); \r\n\n", 
                     pp[i], pp[i], pp[i], pp[i], pp[i]);
                 Xml += pp[i];
@@ -63,8 +63,7 @@ namespace 批量操作工具
             string Xml="";
             for (int i = 0; i < pp.Length; i++)
             {
-                pp[i] = pp[i].Trim();
-                pp[i] = "var "+pp[i]+ " = xNode.SelectSingleNode(\"" + pp[i] + "\")?.InnerText ?? \"\";\n";
+                pp[i] = "infoList."+pp[i]+ " = xNode.SelectSingleNode(\"" + pp[i] + "\")?.InnerText ?? \"\";\n";
                 Xml += pp[i];
             }
             Xml = Xml.Replace("\r", "");
@@ -83,6 +82,7 @@ namespace 批量操作工具
             {
                 File.Delete(path);
             }
+            txtContent1.Text = txtContent1.Text.Trim().Replace(" ", "");
             string str = txtContent1.Text.Trim().Replace("\n", " ");
             string[] pp = str.Split(' ');
             string Xml = "";
@@ -109,7 +109,7 @@ namespace 批量操作工具
 
         private void btnResCs_Click(object sender, EventArgs e)
         {
-            string path = @"C:\CsFile\Respond4" + txtClass.Text.Trim() + @".cs";
+            string path = @"C:\CsFile\Response4" + txtClass.Text.Trim() + @".cs";
             if (!Directory.Exists(@"C:\CsFile"))
             {
                 Directory.CreateDirectory(@"C:\CsFile");
@@ -118,6 +118,7 @@ namespace 批量操作工具
             {
                 File.Delete(path);
             }
+            txtContent1.Text = txtContent1.Text.Trim().Replace(" ", "");
             string str = txtContent1.Text.Trim().Replace("\n", " ");
             string[] pp = str.Split(' ');
             string Xml = "";
@@ -129,7 +130,7 @@ namespace 批量操作工具
             Xml = Xml.Replace("\r", "");
             //Xml = Xml.Replace("\t", "");
 
-            string Cs = "using System.Collections.Generic;\nnamespace In.Api.Dto.HisWs\n{\n\tpublic class Request4" + txtClass.Text.Trim() + 
+            string Cs = "using System.Collections.Generic;\nnamespace In.Api.Dto.HisWs\n{\n\tpublic class Response4" + txtClass.Text.Trim() + 
                 "\n\t{\n\t\tpublic string ResultCode {get;set;}\n\t\tpublic string ResultDesc {get;set;}\n\t\t public List<"+txtClass.Text.Trim()+"Info> info {get;set;}\n\n\t\tpublic class "+txtClass.Text.Trim()+"Info\n\t\t{\n" + Xml + "\t\t}\n\t}\n}";
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
             StreamWriter sw = new StreamWriter(fs);
