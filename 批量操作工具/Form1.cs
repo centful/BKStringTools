@@ -124,14 +124,14 @@ namespace 批量操作工具
             string Xml = "";
             for (int i = 0; i < pp.Length; i++)
             {
-                pp[i] = "\t\t\tpublic string " + pp[i] + " {get;set;} \n";
+                pp[i] = "\t\tpublic string " + pp[i] + " {get;set;} \n";
                 Xml += pp[i];
             }
             Xml = Xml.Replace("\r", "");
             //Xml = Xml.Replace("\t", "");
 
             string Cs = "using System.Collections.Generic;\nnamespace In.Api.Dto.HisWs\n{\n\tpublic class Response4" + txtClass.Text.Trim() + 
-                "\n\t{\n\t\tpublic string ResultCode {get;set;}\n\t\tpublic string ResultDesc {get;set;}\n\t\t public List<"+txtClass.Text.Trim()+"Info> info {get;set;}\n\n\t\tpublic class "+txtClass.Text.Trim()+"Info\n\t\t{\n" + Xml + "\t\t}\n\t}\n}";
+                "\n\t{\n\t\tpublic string ResultCode {get;set;}\n\t\tpublic string ResultDesc {get;set;}\n\t\t public List<"+txtClass.Text.Trim()+"Info> info {get;set;}\n\n\t}\n\tpublic class "+txtClass.Text.Trim()+"Info\n\t{\n" + Xml + "\t}\n}";
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
             StreamWriter sw = new StreamWriter(fs);
             //开始写入
