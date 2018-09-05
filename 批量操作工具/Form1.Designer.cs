@@ -37,6 +37,7 @@
             this.btnResCs = new System.Windows.Forms.Button();
             this.txtClass = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnJson = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtContent1
@@ -124,6 +125,16 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "类 名 ：";
             // 
+            // btnJson
+            // 
+            this.btnJson.Location = new System.Drawing.Point(390, 61);
+            this.btnJson.Name = "btnJson";
+            this.btnJson.Size = new System.Drawing.Size(91, 44);
+            this.btnJson.TabIndex = 1;
+            this.btnJson.Text = "生成Json";
+            this.btnJson.UseVisualStyleBackColor = true;
+            this.btnJson.Click += new System.EventHandler(this.btnJson_Click);
+            // 
             // BKYZtools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -135,6 +146,7 @@
             this.Controls.Add(this.btnReqCs);
             this.Controls.Add(this.btnResXML);
             this.Controls.Add(this.btnReqXML);
+            this.Controls.Add(this.btnJson);
             this.Controls.Add(this.btnProperty);
             this.Controls.Add(this.txtContent2);
             this.Controls.Add(this.txtContent1);
@@ -157,6 +169,7 @@
         private System.Windows.Forms.Button btnResCs;
         private System.Windows.Forms.TextBox txtClass;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnJson;
     }
 }
 

@@ -27,6 +27,7 @@ namespace 批量操作工具
             string Xml = ""; 
             for (int i = 0; i < pp.Length; i++)
             {
+                pp[i] = pp[i].Substring(0, 1).ToUpper() + pp[i].Substring(1);
                 pp[i] = "public string " + pp[i] + " {get;set;} \n";
                 Xml += pp[i];
             }
@@ -44,6 +45,7 @@ namespace 批量操作工具
             string Xml = "var xmlDoc = new XmlDocument();\r\nXmlNode root = xmlDoc.CreateElement(\"req\"); \r\n";
             for (int i = 0; i < pp.Length; i++)
             {
+                //pp[i] = pp[i].Substring(0, 1).ToUpper() + pp[i].Substring(1);
                 pp[i] =string.Format("XmlNode {0}Node = xmlDoc.CreateElement(\"{1}\");\r\n{2}Node.InnerText = request.{3};\r\nroot.AppendChild({4}Node); \r\n\n", 
                     pp[i], pp[i], pp[i], pp[i], pp[i]);
                 Xml += pp[i];
@@ -63,6 +65,7 @@ namespace 批量操作工具
             string Xml="";
             for (int i = 0; i < pp.Length; i++)
             {
+                pp[i] = pp[i].Substring(0, 1).ToUpper() + pp[i].Substring(1);
                 pp[i] = "infoList."+pp[i]+ " = xNode.SelectSingleNode(\"" + pp[i] + "\")?.InnerText ?? \"\";\n";
                 Xml += pp[i];
             }
@@ -88,6 +91,7 @@ namespace 批量操作工具
             string Xml = "";
             for (int i = 0; i < pp.Length; i++)
             {
+                pp[i] = pp[i].Substring(0, 1).ToUpper() + pp[i].Substring(1);
                 pp[i] = "\t\tpublic string " + pp[i] + " {get;set;} \n";
                 Xml += pp[i];
             }
@@ -124,6 +128,7 @@ namespace 批量操作工具
             string Xml = "";
             for (int i = 0; i < pp.Length; i++)
             {
+                pp[i] = pp[i].Substring(0, 1).ToUpper() + pp[i].Substring(1);
                 pp[i] = "\t\tpublic string " + pp[i] + " {get;set;} \n";
                 Xml += pp[i];
             }
@@ -147,6 +152,25 @@ namespace 批量操作工具
         private void BKYZtools_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnJson_Click(object sender, EventArgs e)
+        {
+            txtContent2.Text = "";
+            txtContent1.Text = txtContent1.Text.Trim().Replace(" ", "");
+            string str = txtContent1.Text.Trim().Replace("\n", " ");
+            string[] pp = str.Split(' ');
+            string Xml = "{\n";
+            for (int i = 0; i < pp.Length; i++)
+            {
+                pp[i] = pp[i].Substring(0, 1).ToUpper() + pp[i].Substring(1);
+                pp[i] = "\"" + pp[i] + "\":\"\", \n";
+                Xml += pp[i];
+            }
+            Xml = Xml.Replace("\r", "");
+            Xml = Xml.Replace("\t", "");
+            Xml = Xml.Substring(0, Xml.Length - 3);
+            txtContent2.Text = Xml+"\n}";
         }
     }
 }
